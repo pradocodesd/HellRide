@@ -7,3 +7,36 @@
 <script src="app.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hellride App</title>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+  <h1>Welcome to Hellride</h1>
+
+  <!-- Google Login Button -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('Logged in as: ' + profile.getName());
+      // Send the ID token to your server for authentication (optional)
+    }
+  </script>
+
+  <script>
+    function renderButton() {
+      gapi.signin2.render('google-signin-button', {
+        'scope': 'profile email',
+        'longtitle': true,
+        'theme': 'dark'
+      });
+    }
+  </script>
+</body>
+</html>
